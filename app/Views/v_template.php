@@ -13,8 +13,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?= base_url('AdminLTE3') ?>/plugins/fontawesome-free/css/all.min.css">
+  
+   <!-- DataTables -->
+   <link rel="stylesheet" href="<?= base_url('AdminLTE3') ?>/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= base_url('AdminLTE3') ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= base_url('AdminLTE3') ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('AdminLTE3') ?>/dist/css/adminlte.min.css">
+
+  <style>
+    #example1_length {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* atur jarak antar elemen */
+}
+
+#example1_length .dt-buttons {
+  margin-left: 10px; /* opsional tambahan jarak */
+}
+  </style>
+
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -200,11 +220,79 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
 
-<!-- jQuery -->
-<script src="<?= base_url('AdminLTE3') ?>/plugins/jquery/jquery.min.js"></script>
+  <!-- jQuery -->
+  <script src="<?= base_url('AdminLTE3') ?>/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="<?= base_url('AdminLTE3') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="<?= base_url('AdminLTE3') ?>/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url('AdminLTE3') ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?= base_url('AdminLTE3') ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?= base_url('AdminLTE3') ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="<?= base_url('AdminLTE3') ?>/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?= base_url('AdminLTE3') ?>/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="<?= base_url('AdminLTE3') ?>/plugins/jszip/jszip.min.js"></script>
+<script src="<?= base_url('AdminLTE3') ?>/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="<?= base_url('AdminLTE3') ?>/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="<?= base_url('AdminLTE3') ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="<?= base_url('AdminLTE3') ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="<?= base_url('AdminLTE3') ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- ChartJS -->
+<script src="<?= base_url('AdminLTE3') ?>/plugins/chart.js/Chart.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url('AdminLTE3') ?>/dist/js/adminlte.min.js"></script>
+
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, 
+      "lengthChange": true, 
+      "autoWidth": false,
+      "paging": true,
+      "info": true,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_length');
+  });
+</script>
+
+<script>
+          const ctx = document.getElementById('myChart');
+          const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        </script>
+
+
 </body>
 </html>

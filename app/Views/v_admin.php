@@ -57,3 +57,50 @@
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+
+          <div class="col-md-4">
+            <!-- Info Boxes Style 2 -->
+            <div class="info-box mb-3 bg-primary">
+              <span class="info-box-icon"><i class="fas fa-money-bill-wave"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text"><b style="font-size: large;">Pemasukan Hari ini</b></span>
+                <span class="info-box-number">Rp. 5,200</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <!-- Info Boxes Style 2 -->
+            <div class="info-box mb-3 bg-info">
+              <span class="info-box-icon"><i class="fas fa-money-bill-wave"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text"><b style="font-size: large;">Pemasukan Bulan ini</b></span>
+                <span class="info-box-number">Rp. 500.000</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <!-- Info Boxes Style 2 -->
+            <div class="info-box mb-3 bg-olive">
+              <span class="info-box-icon"><i class="fas fa-money-bill-wave"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text"><b style="font-size: large;">Pemasukan Tahun ini</b></span>
+                <span class="info-box-number">Rp. 2.500.000</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+          </div>
+
+          <div class="col-md-12">
+          <canvas id="myChart" width="100" height="30px">
+
+          </canvas>
+          </div>
+
+          
