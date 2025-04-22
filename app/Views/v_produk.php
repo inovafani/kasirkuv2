@@ -17,7 +17,7 @@
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     </div>
                 <?php endif; ?>
-
+                <h1> Hallo Semua </h1>
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                     <tr class="text-center">
