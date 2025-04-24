@@ -147,7 +147,7 @@
 
       <?php foreach($produk as $key => $value) : ?>
 
-       <!-- Modal tambah data -->
+       <!-- Modal edit data -->
        <div class="modal fade" id="edit-data<?= $value['id_produk']; ?>">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -157,22 +157,22 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <?php echo form_open('Produk/TambahData'); ?>
+            <?php echo form_open('Produk/UpdateData/' . $value['id_produk']); ?>
             <div class="modal-body">
                 <div class="form-group">
                     <label for="">Kode Produk</label>
-                    <input name="kode_produk" class="form-control" value="<?= old('kode_produk'); ?>" placeholder="Kode produk" required>
+                    <input name="kode_produk" class="form-control" value="<?= $value['kode_produk']; ?>" placeholder="Kode produk" required>
                 </div>
                 <div class="form-group">
                     <label for="">Nama Produk</label>
-                    <input name="nama_produk" class="form-control" value="<?= old('nama_produk'); ?>" placeholder="Nama produk" required>
+                    <input name="nama_produk" class="form-control" value="<?= $value['nama_produk']; ?>" placeholder="Nama produk" required>
                 </div>
                 <div class="form-group">
                     <label for="">Kategori</label>
                     <select name="id_kategori" class="form-control">
                       <option value="">--Pilih Kategori--</option>
                       <?php foreach($kategori as $key => $k) :?>
-                            <option value="<?= $value['id_kategori']; ?>"><?= $value['nama_kategori'] ?></option>
+                            <option value="<?= $k['id_kategori']; ?>" <?= $value['id_kategori'] == $k['id_kategori'] ? 'selected' : '' ?>><?= $k['nama_kategori'] ?></option>
                     <?php endforeach;?>
                     </select>
                 </div>
@@ -181,7 +181,7 @@
                     <select name="id_satuan" class="form-control">
                       <option value="">--Pilih Satuan--</option>
                       <?php foreach($satuan as $key => $s) :?>
-                            <option value="<?= $value['id_satuan']; ?>"><?= $value['nama_satuan'] ?></option>
+                            <option value="<?= $s['id_satuan']; ?>"><?= $s['nama_satuan'] ?></option>
                     <?php endforeach;?>
                     </select>
                 </div>
@@ -191,7 +191,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Rp.</span>
                         </div>
-                    <input name="harga_beli" id="harga_beli" class="form-control" value="<?= old('harga_beli'); ?>" placeholder="Harga Beli" required>
+                    <input name="harga_beli" id="harga_beli" class="form-control" value="<?= $value['harga_beli']; ?>" placeholder="Harga Beli" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -200,12 +200,12 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Rp.</span>
                         </div>
-                    <input name="harga_jual" id="harga_jual" class="form-control" value="<?= old('harga_jual'); ?>" placeholder="Harga Jual" required>
+                    <input name="harga_jual" id="harga_jual" class="form-control" value="<?= $value['harga_jual']; ?>" placeholder="Harga Jual" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="">Stok</label>
-                    <input name="stok" type="number" class="form-control" value="<?= old('stok'); ?>" placeholder="Stok" required>
+                    <input name="stok" type="number" class="form-control" value="<?= $value['stok']; ?>" placeholder="Stok" required>
                 </div>
                 
             </div>
