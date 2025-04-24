@@ -241,6 +241,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="<?= base_url('AdminLTE3') ?>/plugins/chart.js/Chart.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url('AdminLTE3') ?>/dist/js/adminlte.min.js"></script>
+<!-- Autonumeric JS -->
+<script src="https://cdn.jsdelivr.net/npm/autonumeric@4.6.0/dist/autoNumeric.min.js"></script>
+
+<script>
+  new AutoNumeric('#harga_jual', {
+    digitalGroupSeparator: ',',
+    decimalPlaces: 0,
+  });
+  new AutoNumeric('#harga_beli', {
+    digitalGroupSeparator: ',',
+    decimalPlaces: 0,
+  });
+</script>
 
 <script>
   $(function () {

@@ -17,7 +17,7 @@ class App extends BaseConfig
      * E.g., http://example.com/
      */
     // public string $baseURL = 'http://localhost:8080/'; // dengan spark server
-    public string $baseURL = 'http://localhost/kasirku/public/'; // dengan cara biasa
+    public string $baseURL = 'http://localhost/kasirkuv2/public/'; // dengan cara biasa
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

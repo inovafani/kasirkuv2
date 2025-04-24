@@ -53,7 +53,7 @@
             <!-- /.card -->
           </div>
 
-           <!-- Modal tambah data -->
+        <!-- Modal tambah data -->
         <div class="modal fade" id="tambah-data">
         <div class="modal-dialog">
           <div class="modal-content">
