@@ -1,3 +1,3 @@
-Repositori untuk kasir cafe pribadi saya, ini adalah projek belajar pribadi saya.
+Ini adalah repository untuk aplikasi kasir untuk toko pribadi saya, menggunakan framework CodeIgniter4, salam hangat.
 
-dan saya akan mencoba mengedit readme lagi di sini
+
