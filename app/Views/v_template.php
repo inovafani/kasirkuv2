@@ -253,6 +253,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
     digitalGroupSeparator: ',',
     decimalPlaces: 0,
   });
+
+  <?php foreach($produk as $key => $value) : ?>
+  new AutoNumeric('#harga_jual<?= $value['id_produk']; ?>', {
+    digitalGroupSeparator: ',',
+    decimalPlaces: 0,
+  });
+  new AutoNumeric('#harga_beli<?= $value['id_produk']; ?>', {
+    digitalGroupSeparator: ',',
+    decimalPlaces: 0,
+  });
+  <?php endforeach; ?>
 </script>
 
 <script>

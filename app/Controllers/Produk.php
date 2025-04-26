@@ -82,4 +82,52 @@ class Produk extends BaseController
             return redirect()->to(base_url('Produk'))->withInput('validation');
         }
     }
+
+    public function UpdateData($id_produk)
+    {
+
+        if ($this->validate([
+                'id_satuan' => [
+                'label' => 'Satuan',
+                'rules' => 'required',
+                'errors' => [ 
+                    'required' => '{field} belum dipilih',
+                ]
+            ],
+                'id_kategori' => [
+                'label' => 'Kategori',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} belum dipilih',
+                ]
+            ]
+        ])){
+            $hargaBeli = str_replace(",", "", $this->request->getPost('harga_beli'));
+            $hargaJual = str_replace(",", "", $this->request->getPost('harga_jual'));
+            $data = [
+                'id_produk' => $id_produk,
+                'nama_produk' => $this->request->getPost('nama_produk'),
+                'id_kategori' => $this->request->getPost('id_kategori'),
+                'id_satuan' => $this->request->getPost('id_satuan'),
+                'harga_beli' => $hargaBeli,
+                'harga_jual' => $hargaJual,
+                'stok' => $this->request->getPost('stok')
+            ];
+            $this->ModelProduk->UpdateData($data);
+            session()->setFlashdata('pesan', 'Data berhasil diupdate!');
+            return redirect()->to(base_url('Produk'));
+        } else {
+            session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('Produk'))->withInput('validation');
+        }
+    }
+
+    public function DeleteData($id_produk)
+    {
+        $session = \Config\Services::session();
+        $data = ['id_produk' => $id_produk];
+        $this->ModelProduk->DeleteData($data);
+        $session->setFlashdata('pesan', 'Data berhasil dihapus!');
+        return redirect()->to('Produk');
+    }
 }

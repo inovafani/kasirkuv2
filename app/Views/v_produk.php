@@ -161,7 +161,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="">Kode Produk</label>
-                    <input name="kode_produk" class="form-control" value="<?= $value['kode_produk']; ?>" placeholder="Kode produk" required>
+                    <input name="kode_produk" class="form-control" value="<?= $value['kode_produk']; ?>" placeholder="Kode produk" required readonly>
                 </div>
                 <div class="form-group">
                     <label for="">Nama Produk</label>
@@ -181,7 +181,7 @@
                     <select name="id_satuan" class="form-control">
                       <option value="">--Pilih Satuan--</option>
                       <?php foreach($satuan as $key => $s) :?>
-                            <option value="<?= $s['id_satuan']; ?>"><?= $s['nama_satuan'] ?></option>
+                            <option value="<?= $s['id_satuan']; ?>" <?= $value['id_satuan'] == $s['id_satuan'] ? 'selected' : '' ?>><?= $s['nama_satuan'] ?></option>
                     <?php endforeach;?>
                     </select>
                 </div>
@@ -191,7 +191,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Rp.</span>
                         </div>
-                    <input name="harga_beli" id="harga_beli" class="form-control" value="<?= $value['harga_beli']; ?>" placeholder="Harga Beli" required>
+                    <input name="harga_beli" id="harga_beli<?= $value['id_produk']; ?>" class="form-control" value="<?= $value['harga_beli']; ?>" placeholder="Harga Beli" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -200,7 +200,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Rp.</span>
                         </div>
-                    <input name="harga_jual" id="harga_jual" class="form-control" value="<?= $value['harga_jual']; ?>" placeholder="Harga Jual" required>
+                    <input name="harga_jual" id="harga_jual<?= $value['id_produk']; ?>" class="form-control" value="<?= $value['harga_jual']; ?>" placeholder="Harga Jual" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -222,5 +222,32 @@
       <!-- /.modal -->  
       
       <?php endforeach;?>
+
+       <!-- Modal delete data -->
+       <?php foreach ($produk as $key => $value): ?>
+        <div class="modal fade" id="delete-data<?= $value['id_produk']; ?>">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Delete Data <?= $subjudul; ?></h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+            <div class="modal-body">
+                <p>Apakah anda yakin akan menghapus data <b><?= $value['nama_produk']; ?></b> ?</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+              <a href="<?= base_url('Produk/DeleteData/' . $value['id_produk']) ?>" class="btn btn-danger">Hapus</a>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+      <?php endforeach; ?>
 
         
